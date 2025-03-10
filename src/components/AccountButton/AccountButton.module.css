@@ -1,0 +1,8 @@
+.accountButton {
+  border: none;
+  border-radius: 32px;
+  padding: 10px 8px;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--gray-800);
+}

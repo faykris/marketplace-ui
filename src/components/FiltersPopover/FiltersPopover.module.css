@@ -1,0 +1,82 @@
+.filtersButton {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+}
+
+.filtersIcon {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--gray-800);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 16px;
+}
+
+.priceInputs {
+  display: flex;
+  gap: 8px;
+}
+
+.applyFiltersButton {
+  margin-top: 16px;
+}
+
+.formField {
+  display: grid;
+  width: 100%;
+}
+
+.formLabel {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 35px;
+  color: var(--gray-800);
+}
+
+.popoverContent {
+  width: 380px;
+}
+
+.error {
+  color: var(--red-500);
+  font-size: 12px;
+  text-align: center;
+}
+
+.sellersFilter {
+  display: flex;
+  flex-direction: column;
+  max-height: 300px;
+  overflow-y: auto;
+  gap: 4px;
+}
+
+.seller {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sellersTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-800);
+}
+
+@media screen and (max-width: 420px){
+  .popoverContent {
+    width: 350px;
+  }
+}

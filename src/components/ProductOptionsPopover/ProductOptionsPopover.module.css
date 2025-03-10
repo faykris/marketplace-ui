@@ -1,0 +1,38 @@
+.menuButton {
+  all: unset;
+  cursor: pointer;
+}
+
+.menuButtonIcon {
+  font-size: 20px;
+  color: var(--gray-700);
+}
+
+.contentOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contentOptions button {
+  border: none;
+  background-color: transparent;
+  color: var(--gray-800);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  cursor: pointer;
+  text-align: start;
+}
+
+.contentOptions button:hover {
+  background-color: var(--gray-200);
+}
+
+.contentOptions button:active {
+  background-color: var(--gray-300);
+}
+
+.divider {
+  border-top: 1px solid var(--gray-300);
+}

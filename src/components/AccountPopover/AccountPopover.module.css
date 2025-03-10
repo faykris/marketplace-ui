@@ -1,0 +1,15 @@
+.userContainer {
+  border: none;
+  border-radius: unset;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-right: 8px;
+}
+
+.userContainer .username {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-800);
+}

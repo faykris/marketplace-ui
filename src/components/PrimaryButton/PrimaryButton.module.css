@@ -1,0 +1,35 @@
+.primaryButton {
+  border-radius: 18px;
+  font-weight: 600;
+  padding: 10px 16px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+}
+
+.primaryButton.outlineVariant {
+  border: 1px solid var(--primary-brand);
+  background: white;
+  color: var(--primary-brand);
+}
+
+.primaryButton.defaultVariant {
+  background: var(--primary-brand);
+  color: white;
+}
+
+.primaryButton.outlineVariant:hover {
+  background-color: rgb(from var(--primary-brand) r g b / 10%);
+}
+
+.primaryButton.outlineVariant:active {
+  background-color: rgb(from var(--primary-brand) r g b / 20%);
+}
+
+.primaryButton.defaultVariant:hover {
+  background-color: var(--primary-brand-dark-100);
+}
+
+.primaryButton.defaultVariant:active {
+  background-color: var(--primary-brand-dark-200);
+}

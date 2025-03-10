@@ -1,0 +1,27 @@
+.homePageRoot {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow: hidden;
+}
+
+.shapeContainer {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.shape {
+  position: relative;
+  top: -150px;
+  left: -450px;
+  background: rgb(34,193,195);
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,142,253,1) 100%);
+  width: 3000px;
+  height: 530px;
+  border-radius: 50%;
+}
