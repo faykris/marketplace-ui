@@ -1,0 +1,106 @@
+.cartButton {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background-color: white;
+  border: none;
+  max-width: 36px;
+  box-sizing: border-box;
+}
+
+.cartIcon {
+  cursor: pointer;
+  color: var(--gray-800);
+  font-size: 20px;
+}
+
+.emptyCartIcon {
+  color: var(--gray-800);
+  font-size: 36px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gray-800);
+  text-align: center;
+}
+
+.emptyCartContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100px;
+  gap: 8px;
+}
+
+.emptyCart {
+  border-radius: 50%;
+  background-color: var(--gray-200);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyDescription {
+  font-size: 12px;
+  color: var(--gray-600);
+  text-align: center;
+}
+
+.popoverContent {
+  width: 300px;
+}
+
+.productList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-top: 1px solid var(--gray-300);
+  padding-top: 16px;
+}
+
+.action button {
+  width: 100%;
+}
+
+.triggerContainer {
+  position: relative;
+}
+
+.totalCartQuantity {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--gray-950);
+  color: white;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.12);
+}

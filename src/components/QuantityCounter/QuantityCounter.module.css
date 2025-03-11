@@ -1,0 +1,39 @@
+.quantityContainer {
+  border: 1px solid var(--gray-500);
+  border-radius: 18px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: fit-content;
+}
+
+.modifyProductQuantityButton {
+  all: unset;
+  border-radius: 8px;
+}
+
+.modifyProductQuantityButton:hover {
+  background-color: var(--gray-200);
+}
+
+.removeProductIcon,
+.addProductIcon {
+  font-size: 20px;
+  color: var(--gray-800);
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.modifyProductQuantityButton:disabled .addProductIcon {
+  background-color: var(--gray-100);
+  color: var(--gray-400);
+  cursor: default;
+}
+
+.quantity {
+  min-width: 20px;
+  text-align: center;
+}
