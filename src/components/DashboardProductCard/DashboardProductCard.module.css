@@ -78,3 +78,33 @@
   align-items: center;
   gap: 2px;
 }
+
+.mainContent {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.mobileImage {
+  display: none;
+}
+
+@media screen and (max-width: 480px){
+  .desktopImage {
+    display: none;
+  }
+
+  .mobileImage {
+    display: block;
+    border-radius: 6px;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 180px;
+  }
+
+  .adminProductCard {
+    flex-direction: column;
+  }
+}
