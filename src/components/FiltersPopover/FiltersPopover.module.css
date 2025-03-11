@@ -79,4 +79,13 @@
   .popoverContent {
     width: 350px;
   }
+  .priceInputs {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 360px){
+  .popoverContent {
+    width: 300px;
+  }
 }

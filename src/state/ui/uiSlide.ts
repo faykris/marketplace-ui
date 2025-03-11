@@ -1,26 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface UiState {
-  showLoginModal: boolean;
-  showRegisterModal: boolean;
+  shoppingCartOpen: boolean;
 }
 
 const initialState: UiState = {
-  showLoginModal: false,
-  showRegisterModal: false,
+  shoppingCartOpen: false,
 };
 
 const uiSlice = createSlice({
   name: "ui",
   initialState,
   reducers: {
-    toggleLoginModal: (state) => {
-      state.showLoginModal = !state.showLoginModal;
+    openShoppingCart: (state) => {
+      state.shoppingCartOpen = true;
     },
-    toggleRegisterModal: (state) => {
-      state.showRegisterModal = !state.showRegisterModal;
+    closeShoppingCart: (state) => {
+      state.shoppingCartOpen = false;
     },
   },
 });
 
+export const { openShoppingCart, closeShoppingCart } = uiSlice.actions;
 export default uiSlice.reducer;

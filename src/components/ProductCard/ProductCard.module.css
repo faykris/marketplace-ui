@@ -53,8 +53,15 @@
   right: 12px;
 }
 
+.quantityAddRemove {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}
+
 .sku,
-.seller {
+.seller,
+.quantity {
   font-size: 12px;
   color: var(--gray-600);
   white-space: nowrap;

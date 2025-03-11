@@ -5,6 +5,7 @@ import productService from "../../services/productService.ts";
 interface ProductState {
   products: Product[];
   productsByOwnerId?: Product[];
+  shoppingCartProducts?: Product[];
   loading: boolean;
   error?: string | null;
 }
@@ -12,6 +13,7 @@ interface ProductState {
 const initialState: ProductState = {
   products: [],
   productsByOwnerId: [],
+  shoppingCartProducts: [],
   loading: false,
   error: null,
 };
@@ -51,6 +53,13 @@ export const deleteProduct = createAsyncThunk<Product, string>(
   }
 );
 
+export const buyProducts = createAsyncThunk(
+  "products/buyProducts",
+  async (items: { productId: string; quantity: number }[]) => {
+    return await productService.buyProducts(items);
+  }
+);
+
 const productSlice = createSlice({
   name: "product",
   initialState,
@@ -58,6 +67,40 @@ const productSlice = createSlice({
     resetProductsByOwnerId: (state) => {
       state.productsByOwnerId = [];
       state.error = null;
+    },
+    resetShoppingCartQuantity: (state) => {
+      state.shoppingCartProducts = [];
+    },
+    addToShoppingCart: (state, action) => {
+      const existingProduct = state.shoppingCartProducts?.find(
+        (p) => p.id === action.payload.id
+      );
+      if (existingProduct) {
+        existingProduct.shoppingCartQuantity =
+          (existingProduct.shoppingCartQuantity || 1) + 1;
+      } else {
+        state.shoppingCartProducts?.push({
+          ...action.payload,
+          shoppingCartQuantity: 1,
+        });
+      }
+    },
+    removeFromShoppingCart: (state, action) => {
+      const existingProduct = state.shoppingCartProducts?.find(
+        (p) => p.id === action.payload
+      );
+      if (existingProduct) {
+        if (
+          existingProduct.shoppingCartQuantity &&
+          existingProduct.shoppingCartQuantity > 1
+        ) {
+          existingProduct.shoppingCartQuantity--;
+        } else {
+          state.shoppingCartProducts = state.shoppingCartProducts?.filter(
+            (p) => p.id !== action.payload
+          );
+        }
+      }
     },
   },
   extraReducers: (builder) => {
@@ -126,9 +169,27 @@ const productSlice = createSlice({
       .addCase(deleteProduct.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Error deleting the product";
+      })
+      .addCase(buyProducts.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(buyProducts.fulfilled, (state) => {
+        state.loading = false;
+        state.error = null;
+        state.shoppingCartProducts = [];
+      })
+      .addCase(buyProducts.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message || "Error buying products";
       });
   },
 });
 
-export const { resetProductsByOwnerId } = productSlice.actions;
+export const {
+  resetProductsByOwnerId,
+  addToShoppingCart,
+  removeFromShoppingCart,
+  resetShoppingCartQuantity,
+} = productSlice.actions;
 export default productSlice.reducer;

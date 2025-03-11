@@ -56,12 +56,6 @@
   outline: 1px solid var(--gray-800);
 }
 
-.cartIcon {
-  cursor: pointer;
-  color: var(--gray-800);
-  font-size: 20px;
-}
-
 .sendIcon {
   color: white;
   height: 20px;
@@ -88,16 +82,7 @@
   transform: translateY(-50%);
 }
 
-.cartButton {
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
-  background-color: white;
-  border: none;
-  max-width: 36px;
-}
+
 
 @media screen and (max-width: 1168px){
   .search {

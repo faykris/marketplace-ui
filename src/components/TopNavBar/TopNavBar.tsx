@@ -13,6 +13,7 @@ import { SignInDialog } from "../SignInDialog/SignInDialog.tsx";
 import { SignUpDialog } from "../SignUpDialog/SignUpDialog.tsx";
 import { AccountPopover } from "../../components/AccountPopover/AccountPopover.tsx";
 import { FiltersPopover } from "../../components/FiltersPopover/FiltersPopover.tsx";
+import { ShoppingCartPopover } from "../../components/ShoppingCartPopover/ShoppingCartPopover.tsx";
 
 export const TopNavBar = () => {
   const location = useLocation();
@@ -113,17 +114,13 @@ export const TopNavBar = () => {
       </div>
       <div className={styles.accountActions}>
         {!currentUser && (
-          <>
+          <div>
             <SignUpDialog />
             <SignInDialog />
-          </>
+          </div>
         )}
         {currentUser && <AccountPopover currentUser={currentUser} />}
-        <button className={styles.cartButton}>
-          <span className={cx(styles.cartIcon, "material-icons")}>
-            shopping_cart
-          </span>
-        </button>
+        {currentUser?.role !== "admin" && <ShoppingCartPopover />}
       </div>
     </div>
   );

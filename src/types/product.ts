@@ -9,6 +9,7 @@ export interface Product {
   sellerId: string;
   image_url?: string;
   ownerUsername?: string;
+  shoppingCartQuantity?: number;
 }
 
 export type ProductPayload = {

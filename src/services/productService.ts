@@ -50,10 +50,27 @@ const deleteProduct = async (productId: string): Promise<Product> => {
   return response.json();
 };
 
+const buyProducts = async (
+  items: { productId: string; quantity: number }[]
+): Promise<{ message: string; product: Product }> => {
+  const token = localStorage.getItem("authToken");
+  const response = await fetch(`${API_URL}/products/buy`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+    body: JSON.stringify({ items }),
+  });
+
+  return response.json();
+};
+
 export default {
   getAllProducts,
   searchProducts,
   getProductsByOwnerId,
   createProduct,
   deleteProduct,
+  buyProducts,
 };

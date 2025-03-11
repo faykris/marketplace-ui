@@ -10,10 +10,10 @@ export const SignInDialog = () => {
     <Dialog
       isOpen={open}
       setIsOpen={setOpen}
-      title="Sign In"
-      description="Welcome back! Enter your credentials to sign in."
+      title="Log In"
+      description="Welcome back! Enter your credentials to log in."
       triggerComponent={
-        <AccountButton onClick={() => setOpen(!open)}>Sign in</AccountButton>
+        <AccountButton onClick={() => setOpen(!open)}>Log in</AccountButton>
       }
     >
       <SignInForm onCloseDialog={() => setOpen(false)} />

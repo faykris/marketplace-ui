@@ -17,6 +17,13 @@ export const ProductsCatalog = () => {
     (state: RootState) => state.product
   );
 
+  const sortedProducts = products
+    ? [...products].sort(
+        (a, b) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      )
+    : [];
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
@@ -39,7 +46,7 @@ export const ProductsCatalog = () => {
     <div className={styles.productsRoot}>
       <div className={styles.productList}>
         {currentUser?.role !== "admin" &&
-          products?.map((product) => (
+          sortedProducts?.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
       </div>
