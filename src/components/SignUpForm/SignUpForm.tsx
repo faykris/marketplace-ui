@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 type FormFields = {
-  username: string;
+  email: string;
   password: string;
   passwordConfirmation: string;
 };
@@ -31,7 +31,7 @@ export const SignUpForm = ({ onCloseDialog }: Props) => {
   } = useForm<FormFields>({
     mode: "onSubmit",
     defaultValues: {
-      username: "",
+      email: "",
       password: "",
       passwordConfirmation: "",
     },
@@ -40,21 +40,20 @@ export const SignUpForm = ({ onCloseDialog }: Props) => {
   const onSubmit = async (data: FormFields) => {
     if (data.password !== data.passwordConfirmation) {
       toast("Passwords don't match");
-
       return;
     }
 
     const result = await dispatch(
       registerUser({
-        username: data.username,
+        username: data.email,
         password: data.password,
       })
     ).unwrap();
 
     if ("error" in result || !("id" in result)) {
-      if (result.message === "Username already exists") {
-        setSignUpError("Username already exists");
-        toast.error("Username already exists, please try again.");
+      if (result.message === "Email already exists") {
+        setSignUpError("Email already exists");
+        toast.error("Email already exists, please try again.");
       } else {
         toast.error("Registration failed, please try again.");
       }
@@ -69,20 +68,24 @@ export const SignUpForm = ({ onCloseDialog }: Props) => {
   return (
     <form className={styles.formRoot} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.formField}>
-        <label htmlFor="username" className={styles.formLabel}>
-          Username
+        <label htmlFor="email" className={styles.formLabel}>
+          Email
         </label>
         <input
-          id="username"
+          id="email"
           className={styles.input}
-          type="text"
-          {...register("username", {
-            required: "Username is required",
+          type="email"
+          {...register("email", {
+            required: "Email is required",
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "Invalid email address",
+            },
           })}
-          placeholder="Enter your username"
+          placeholder="Enter your email"
         />
-        {errors.username && (
-          <span className={styles.error}>{errors.username.message}</span>
+        {errors.email && (
+          <span className={styles.error}>{errors.email.message}</span>
         )}
       </div>
       <div className={styles.formField}>
@@ -123,7 +126,7 @@ export const SignUpForm = ({ onCloseDialog }: Props) => {
         />
         {errors.passwordConfirmation && (
           <span className={styles.error}>
-            {errors.passwordConfirmation?.message}
+            {errors.passwordConfirmation.message}
           </span>
         )}
       </div>
