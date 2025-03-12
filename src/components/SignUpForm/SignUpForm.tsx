@@ -51,7 +51,7 @@ export const SignUpForm = ({ onCloseDialog }: Props) => {
     ).unwrap();
 
     if ("error" in result || !("id" in result)) {
-      if (result.message === "Email already exists") {
+      if (result.message === "Username already exists") {
         setSignUpError("Email already exists");
         toast.error("Email already exists, please try again.");
       } else {
