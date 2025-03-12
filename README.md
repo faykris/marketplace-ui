@@ -1,54 +1,83 @@
-# React + TypeScript + Vite
+![](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*poaGV4iICp06Q-yTlA2g_g.png)
+# MagicMarketplace Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MagicMarketplace name was inspired by MagicLog and brings together sellers, buyers, and admins in one place where you can discover and manage a wide variety of products.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## For Sellers
 
-## Expanding the ESLint configuration
+Sellers can create an account and log in to add products to the marketplace. They can also search products in the marketplace in case they want to buy.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## For Buyers
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Buyers don’t need to log in. They can search and filter products by name, SKU, or price range, add items to their shopping cart, and buy them. _(Note: "Buying" in this project means decrementing the product quantity in the database, there is no integrated payment system)_
+
+## For Administrators
+
+-   **Admin Access:** Currently, there’s just one admin account (`cristian-admin@gmail.com` with password `password`). Admin accounts aren't created via the app, they’re set up externally (e.g., via Postman). Please use these credentials if you want to see the admin view.
+-   **Product Management:** Admins can view all products registered on the platform, filter them by seller, and search as needed.
+
+## Routes in the App
+
+-   **`/`**  
+    The homepage where buyers can view the list of products available for purchase.
+-   **`/seller-dashboard`**  
+    A dashboard for sellers to see, search, and remove their own products. _(Editing products isn’t implemented yet because of time and because it was not required, but is a future improvement.)_
+-   **`/admin-dashboard`**  
+    A dashboard for admins to view all products and filter them by seller.
+
+## Features & Requirements
+
+### 1. Create account as a seller.
+
+#### Cases
+1. Email, password and password validation were included.
+2. If passwords don't match, an error is displayed.
+3. If user already exists, an error is displayed
+4. If the account creation is successful, the modal is closed and user is redirected to their products screen.
+
+### 2. Add products with price.
+
+#### Cases
+1. The seller can create products with name, sku, quantity, and price. If any of these attributes are missing, an error is displayed in each input indicating which attribute is missing.
+2. Only authenticated users can add products.
+
+### 3. Sellers can see the full list of products they have registered.
+
+#### Cases
+1. Each seller can only view the products they have registered.
+2. The screen is only accessible to authenticated users.
+
+### 4. Buyers can search for products and add them to their shopping cart
+
+#### Cases
+1. The buyer can search for products by filtering based on name, SKU, or price range.
+
+### 5. Administrators can see all the products that have been registered on the marketplace.
+
+#### Cases
+1. The administrator can view all products on the platform and filter them by seller.
+2. Only authenticated users can access this screen.
+
+## Previous Requirements
+- Node JS installed, is necessary execute commands such as packages installation and make run the project.
+- Visual Studio Code or any other code editor to see easily the code and use of the terminal.
+
+## Installation
+- Clone this repository to a specific location in your PC.
+- Execute command to packages installation:
+```bash
+npm install
+```
+- Now, it's time to run the project with this command:
+```bash
+npm run dev
+```
+- Open the project in generated url (in my case is below here):
+```bash
+http://localhost:5173/
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Author
+- Cristian Pinzón - faykris28@gmail.com
