@@ -3,21 +3,22 @@
 
 MagicMarketplace name was inspired by MagicLog and brings together sellers, buyers, and admins in one place where you can discover and manage a wide variety of products.
 
+![](public/marketplace.jpeg)
+## Deployed project
+- [Click here to see the app...](https://magicmarketplace.netlify.app)
 
-## For Sellers
-
+## Features
+### For Sellers
 Sellers can create an account and log in to add products to the marketplace. They can also search products in the marketplace in case they want to buy.
 
-## For Buyers
-
+### For Buyers
 Buyers don’t need to log in. They can search and filter products by name, SKU, or price range, add items to their shopping cart, and buy them. _(Note: "Buying" in this project means decrementing the product quantity in the database, there is no integrated payment system)_
 
-## For Administrators
-
+### For Administrators
 -   **Admin Access:** Currently, there’s just one admin account (`cristian-admin@gmail.com` with password `password`). Admin accounts aren't created via the app, they’re set up externally (e.g., via Postman). Please use these credentials if you want to see the admin view.
 -   **Product Management:** Admins can view all products registered on the platform, filter them by seller, and search as needed.
 
-## Routes in the App
+### Routes in the App
 
 -   **`/`**  
     The homepage where buyers can view the list of products available for purchase.
@@ -26,7 +27,7 @@ Buyers don’t need to log in. They can search and filter products by name, SKU,
 -   **`/admin-dashboard`**  
     A dashboard for admins to view all products and filter them by seller.
 
-## Features & Requirements
+### Features & Requirements
 
 ### 1. Create account as a seller.
 
@@ -35,29 +36,34 @@ Buyers don’t need to log in. They can search and filter products by name, SKU,
 2. If passwords don't match, an error is displayed.
 3. If user already exists, an error is displayed
 4. If the account creation is successful, the modal is closed and user is redirected to their products screen.
+- [Click here to see video...](https://drive.google.com/file/d/1mebOMycq-y2s4TnvhSaWuUTVNLpsYK9v/view?usp=sharing)
 
 ### 2. Add products with price.
 
 #### Cases
 1. The seller can create products with name, sku, quantity, and price. If any of these attributes are missing, an error is displayed in each input indicating which attribute is missing.
 2. Only authenticated users can add products.
+- [Click here to see video...](https://drive.google.com/file/d/1zXjkshFPf-WpiRC5LI3qLuH8RuZKKRX7/view?usp=sharing)
 
 ### 3. Sellers can see the full list of products they have registered.
 
 #### Cases
 1. Each seller can only view the products they have registered.
 2. The screen is only accessible to authenticated users.
+- [Click here to see video...](https://drive.google.com/file/d/1TEHC0K8Fcuk_LjmMEtYwcRiLEssFthag/view?usp=sharing)
 
 ### 4. Buyers can search for products and add them to their shopping cart
 
 #### Cases
 1. The buyer can search for products by filtering based on name, SKU, or price range.
+- [Click here to see video...](https://drive.google.com/file/d/1sDQ_fwlZQE0Y8EoMi6104_SkXCZREsNx/view?usp=sharing)
 
 ### 5. Administrators can see all the products that have been registered on the marketplace.
 
 #### Cases
 1. The administrator can view all products on the platform and filter them by seller.
 2. Only authenticated users can access this screen.
+- [Click here to see video...](https://drive.google.com/file/d/1b87FnaBvK8P5yhAUCB6rSl7MfXIlw-Yi/view?usp=sharing)
 
 ## Previous Requirements
 - Node JS installed, is necessary execute commands such as packages installation and make run the project.
